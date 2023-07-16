@@ -53,7 +53,7 @@ No Linux:
 source <venv>/bin/activate
 ```
 
-### Instalações necessárias
+### Instalação das dependências utilizadas
 
 ```http
 pip install -r requirements.txt
