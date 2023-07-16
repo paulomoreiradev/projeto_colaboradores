@@ -1,0 +1,80 @@
+{% extends 'colaboradores/base.html' %}
+{% block conteudo %}
+<div class="container my-3">
+    <h2 class="text-center">Colaboradores cadastrados</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Departamento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for colaborador in colaboradores %}
+            <tr>
+                <td>{{colaborador.id_colaborador}}</td>
+                <td>{{colaborador.nome}}</td>
+                <td>{{colaborador.email}}</td>
+                <td>{{colaborador.departamento}}</td>
+                <td>
+                    <div>
+
+                        <form action="{% url 'deletar' colaborador.id_colaborador %}"
+                            class="d-flex justify-content-center gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#{{colaborador.id_colaborador}}">Editar</button>
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+
+                    </div>
+                </td>
+            </tr>
+            <div class="modal fade" id="{{colaborador.id_colaborador}}" tabindex="-1" aria-labelledby="alterarModalLabel"
+                aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="alterarModalLabel">Alterar informações</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form class="container my-3" action="{% url 'editar' colaborador.id_colaborador %}"
+                                method="post">
+                                <div class="modal-body">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <label for="exampleInputNome" class="form-label">Nome:</label>
+                                        <input value="{{colaborador.nome}}" name="nome" type="text" class="form-control" id="exampleInputNome"
+                                            placeholder="Digite o nome do colaborador">
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail" class="form-label">E-mail:</label>
+                                        <input value="{{colaborador.email}}" name="email" type="text" class="form-control" id="exampleInputEmail"
+                                            placeholder="Digite o e-mail do colaborador">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputDepartamento" class="form-label">Departamento:</label>
+                                        <input value="{{colaborador.departamento}}" name="departamento" type="text" class="form-control"
+                                            id="exampleInputDepartamento"
+                                            placeholder="Digite o departamento do colaborador">
+                                    </div>
+                                    <div id="emailHelp" class="form-text mb-3">Não compartilhe informações de nossos colaboradores com terceiros!
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn bg-primary text-light">Salvar alterações</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'colaboradores/base.html' %}
+{% block conteudo %}
+
+    <div class="container my-3">
+        <h2 class="text-center">Colaboradores cadastrados</h2>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Departamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for colaborador in colaboradores %}
+                <tr>
+                    <td>{{colaborador.id_colaborador}}</td>
+                    <td>{{colaborador.nome}}</td>
+                    <td>{{colaborador.email}}</td>
+                    <td>{{colaborador.departamento}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

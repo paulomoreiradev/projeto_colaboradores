@@ -1,0 +1,21 @@
+:root {
+    --azul-primario: #004AAD;
+    --off-white: #F5F5F5;
+}
+
+.fundo_cabecalho {
+    background-color: var(--off-white);
+}
+
+.logo_smartFlow {
+    width: 140px; 
+    height: 45px;
+}
+
+.nav-link:hover {
+    color: var(--azul-primario)!important;
+}
+
+.botao_cadastro {
+    background-color: var(--azul-primario)!important;
+}

@@ -1,0 +1,31 @@
+{% extends 'colaboradores/base.html' %}
+{% block conteudo %}
+    <div class="container mt-3">
+        <h2 class="text-center">Insira os dados do colaborador</h2>
+    </div>
+    <form class="container my-3" action="{% url 'listagem_colaboradores' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputNome" class="form-label">Nome:</label>
+            <input name="nome" type="text" class="form-control" id="exampleInputNome" placeholder="Digite o nome do colaborador">
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">E-mail:</label>
+            <input name="email" type="text" class="form-control" id="exampleInputEmail"
+                placeholder="Digite o e-mail do colaborador">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputDepartamento" class="form-label">Departamento:</label>
+            <input name="departamento" type="text" class="form-control" id="exampleInputDepartamento"
+                placeholder="Digite o departamento do colaborador">
+        </div>
+        <div id="emailHelp" class="form-text mb-3">Não compartilhe informações de nossos colaboradores com terceiros!
+        </div>
+        <button type="submit" class="btn bg-primary text-light">Enviar</button>
+    </form>
+{% endblock %}
+
+
+
+ 
