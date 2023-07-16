@@ -3,9 +3,10 @@
 
 O Projeto Colaboradores foi feito para um teste para uma vaga de estágio na empresa Smartflow Sistemas. O projeto é construído em duas partes, uma API que fornece um CRUD por meio de endpoints pelo qual o usuário pode inserir e modificar colaboradores dentro do sistema, e uma página web que permite fazer as mesmas alterações sem a necessidade de consumir uma API
 
+Projeto desenvolvido utilizando Django Framework
 
 * POST via Formulário (OK)
-* Painel de Controle DELETE & PUT (Em desenvolvimento)
+* Painel de Controle DELETE & PUT (OK)
 * Tabela apresentando todos os Colaboradores cadastrados (OK)
 
 
